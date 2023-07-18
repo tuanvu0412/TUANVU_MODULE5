@@ -51,12 +51,12 @@ let goodRatings = courses.filter((a) => {
 console.log(goodRatings);
 
 //Yêu cầu 2:
-let badRatings = courses.filter(count => count.rating < 4);
-
-badRatings.forEach(count => {
-    console.log(`${count.id}-${count.title}-${count.rating}`)
+let badRatings = courses.filter((count) =>{
+    return count.rating < 4;
+}).map((count)=>{
+    return `${count.id}-${count.title}-${count.rating}`;
 })
 
+
 //Yêu cầu 3:
-const merge = [...courses, ...addedCourses]
-console.log(merge);
+const merge= (courses, addedCourses) => [...courses, ...addedCourses];
