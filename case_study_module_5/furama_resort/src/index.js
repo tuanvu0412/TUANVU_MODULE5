@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./bootstrap.min.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
+    <App></App>,
   function ($) {
     "use strict";
 

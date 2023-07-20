@@ -1,37 +1,16 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
-
-
-const ListService = [
-  {
-    id: 1,
-    name: 'Spa',
-    price: 100,
-    description: 'abc'
-  },
-  {
-    id: 2,
-    name: 'Buffet',
-    price: 100,
-    description: 'abc'
-  },
-  {
-    id: 3,
-    name: 'Gym',
-    price: 100,
-    description: 'abc'
-  }
-]
+import Header from './component/mainpage/header';
+import Main from './component/mainpage/main';
+import Footer from './component/mainpage/footer';
 function App(){
     return (
-      ListService.map(listService => (
-        <tr key={listService.id}>
-          <td>{listService.name}</td>
-          <td>{listService.price}</td>
-          <td>{listService.description}</td>
-        </tr>
-      ))
+      <>
+      <Header></Header>
+      <Main/>
+      <Footer></Footer>
+      </>
     );
 }
 export default App;
