@@ -1,29 +1,37 @@
 import { ErrorMessage, Field, Formik } from 'formik';
 import * as yup from "yup";
-
+import "./form.css";
 function CreateForm() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        alert('Bạn đã khai báo y tế thành công!');
+      };
     return (
+        
         <>
-            <h2>Contact Form</h2>
+            <h2>Tờ khai y tế</h2>
             <Formik
                 initialValues={{
                     hoTen: "", email: "", namSinh: "", quocTich: "",
                     tinhThanh: "", quanHuyen: "", phuongXa: "", soNha: "", dienThoai: "",
+                    hoChieu:"",
                 }}
                 validationSchema={yup.object({
                     hoTen: yup.string().required(),
                     email: yup.string().required().matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "Invalid email address"),
-                    namSinh: yup.string().required().min(1900),
+                    namSinh: yup.string().required().matches(/^(19[0-9]{2}|[2-9][0-9]{3})+$/,"năm sinh phải lớn hơn 1900"),
                     quocTich: yup.string().required(),
                     tinhThanh: yup.string().required(),
                     quanHuyen: yup.string().required(),
                     phuongXa: yup.string().required(),
                     soNha: yup.string().required(),
                     dienThoai: yup.string().required(),
-
+                    hoChieu: yup.string().required(),
                 })}
+              
             >
-                <form>
+                <form  onSubmit={handleSubmit}>
                     <div>
                         <lable htmlFor='hoTen'>Họ tên:</lable><br />
                         <Field id='hoTen' type='text' name='hoTen'></Field>
@@ -31,9 +39,9 @@ function CreateForm() {
                     </div>
                     <br />
                     <div>
-                        <lable htmlFor='email'>Số hộ chiếu/CMND:</lable><br />
-                        <Field id='email' type='text' name='email'></Field>
-                        <ErrorMessage name="email" component="div" className='text-area' />
+                        <lable htmlFor='hoChieu'>Số hộ chiếu/CMND:</lable><br />
+                        <Field id='hoChieu' type='text' name='hoChieu'></Field>
+                        <ErrorMessage name="hoChieu" component="div" className='text-area' />
                     </div>
                     <br />
                     <div>
@@ -61,15 +69,10 @@ function CreateForm() {
                         <ErrorMessage name="quocgia" component="div" className='text-area' />
                     </div>
                     <br />
-                    <div>
-                        <lable htmlFor='quocgia'>Quốc tịch:</lable><br></br>
-                        <Field id="quocgia" type='text' name='quocgia'></Field>
-                        <ErrorMessage name="quocgia" component="div" className='text-area' />
-                    </div>
                     <br />
                     <div>
                         <lable htmlFor='congty'>Công ty làm việc:</lable><br></br>
-                        <Field id="congty" type='text' name='quocgia'></Field>
+                        <Field id="congty" type='text' name='congty'></Field>
                         <ErrorMessage name="congty" component="div" className='text-area' />
                     </div>
                     <br />
@@ -78,7 +81,7 @@ function CreateForm() {
                         <label htmlFor="yte">
                             <Field type="checkbox" id="yte" name="yte" value="male" />
                         </label>
-                        <ErrorMessage name="quocgia" component="div" className='text-area' />
+                        <ErrorMessage name="yte" component="div" className='text-area' />
                     </div>
                     <br />
                     <h2>Địa chỉ liên lạc tại việt nam</h2>

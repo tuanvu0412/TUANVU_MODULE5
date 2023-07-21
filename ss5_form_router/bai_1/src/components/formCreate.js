@@ -2,6 +2,11 @@ import { ErrorMessage, Field, Formik } from 'formik';
 import * as yup from "yup";
 
 function CreateForm() {
+    const handleSubmit = (message) => {
+        message.preventDefault();
+
+        alert('Form submitted successfully!');
+    };
     return (
         <>
             <h2>Contact Form</h2>
@@ -14,7 +19,7 @@ function CreateForm() {
                     message: yup.string().required().matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/)
                 })}
             >
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div>
                         <lable htmlFor='fullName'>Name:</lable>
                         <Field id='fullName' type='text' name='fullName'></Field>
