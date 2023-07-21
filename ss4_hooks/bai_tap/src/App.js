@@ -2,22 +2,43 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 
+function useCounter() {
+  const [count, setCount] = useState(0);
 
-;
+  const fisrtNum = () => {
+    setCount(count + 1);
+  };
+
+  const secondNum = () => {
+    setCount(count + 2);
+  };
+
+  return [count, fisrtNum, secondNum];
+}
+
+function Counter1() {
+  const [count, fisrtNum, secondNum] = useCounter();
+
+  return (
+    <>
+      <div>
+        <h2>Counter 1</h2>
+        <p>Count: {count}</p>
+        <button onClick={fisrtNum}>Add 1</button>
+      </div>
+      <div>
+        <h2>Counter 2</h2>
+        <p>Count: {count}</p>
+        <button onClick={secondNum}>Add 2</button>
+      </div>
+    </>
+  );
+}
 
 function App() {
-  const [counter, setCounter] = useState(0)
-  const [count, setCount] = useState(0)
   return (
     <div>
-      <h5>Count 1:{counter}</h5>
-      <button onClick={() => {
-        setCounter((previousCount) => previousCount + 1);
-      }}>add 1</button>
-      <h5>Count 2:{count}</h5>
-      <button onClick={() => {
-        setCount((previousCount) => previousCount + 1);
-      }}>add 2</button>
+      <Counter1 />
     </div>
   );
 }
