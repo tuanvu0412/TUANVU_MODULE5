@@ -13,10 +13,10 @@ function CreateForm() {
             <Formik
                 initialValues={{ fullName: "", email: "", phone: "", message: "" }}
                 validationSchema={yup.object({
-                    fullName: yup.string().required(),
-                    email: yup.string().required(),
-                    phone: yup.string().required(),
-                    message: yup.string().required().matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/)
+                    fullName: yup.string().required('need to enter name'),
+                    email: yup.string().required('need to enter email').matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/),
+                    phone: yup.string().required('need to enter phone'),
+                    message: yup.string().required('need to enter message')
                 })}
             >
                 <form onSubmit={handleSubmit}>
