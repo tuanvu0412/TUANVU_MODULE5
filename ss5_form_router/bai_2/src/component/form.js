@@ -18,16 +18,16 @@ function CreateForm() {
                     hoChieu:"",
                 }}
                 validationSchema={yup.object({
-                    hoTen: yup.string().required(),
-                    email: yup.string().required().matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "Invalid email address"),
-                    namSinh: yup.string().required().matches(/^(19[0-9]{2}|[2-9][0-9]{3})+$/,"năm sinh phải lớn hơn 1900"),
-                    quocTich: yup.string().required(),
-                    tinhThanh: yup.string().required(),
-                    quanHuyen: yup.string().required(),
-                    phuongXa: yup.string().required(),
-                    soNha: yup.string().required(),
-                    dienThoai: yup.string().required(),
-                    hoChieu: yup.string().required(),
+                    hoTen: yup.string().required('tên không được để trống'),
+                    email: yup.string().required('email không được để trống').matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "địa chỉ email không hợp lệ"),
+                    namSinh: yup.string().required('năm sinh không được để trống').matches(/^(19[0-9]{2}|[2-9][0-9]{3})+$/,"năm sinh phải lớn hơn 1900"),
+                    quocTich: yup.string().required('quốc tịch không được để trống'),
+                    tinhThanh: yup.string().required('tỉnh thành không được để trống'),
+                    quanHuyen: yup.string().required('quân huyện không được để trống'),
+                    phuongXa: yup.string().required('phường xã không được để trống'),
+                    soNha: yup.string().required('số nhà không được để trống'),
+                    dienThoai: yup.string().required('số điện thoại không được để trống'),
+                    hoChieu: yup.string().required('số CMND/Hộ chiếu không được để trống'),
                 })}
               
             >
