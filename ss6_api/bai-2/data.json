@@ -1,0 +1,19 @@
+{
+  "listBook":[
+    {
+      "id":1,
+      "title":"abc",
+      "quantity":2
+    },
+    {
+      "id":2,
+      "title":"abc",
+      "quantity":2
+    },
+    {
+      "id":3,
+      "title":"abc",
+      "quantity":2
+    }
+  ]
+}
