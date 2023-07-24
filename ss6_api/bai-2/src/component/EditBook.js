@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBook = () => {
   const { id } = useParams();
   const [title, setTitle] = useState('');
   const [quantity, setQuantity] = useState('');
-  const history = useHistory();
+
 
   useEffect(() => {
     axios.get(`http://localhost:3000/books/${id}`)
@@ -21,10 +21,10 @@ const EditBook = () => {
 
   const handleEditBookSubmit = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:3000/books/${id}`, { title, quantity })
+    axios.put(`http://localhost:8080/listBook/${id}`, { title, quantity })
       .then(response => {
         alert('Update success');
-        history.push('/');
+    
       })
       .catch(error => {
         console.log(error);

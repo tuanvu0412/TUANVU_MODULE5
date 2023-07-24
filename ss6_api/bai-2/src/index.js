@@ -4,14 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import BookList from './component/ListBook';
-import NewBook from './component/AddBook';
+import AddBook from './component/AddBook';
 import EditBook from './component/EditBook';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <Routes>
     <Route path='/' element={<BookList></BookList>}></Route>
-    <Route path='/new-book' element={<NewBook></NewBook>}></Route>
+    <Route path='/new-book' element={<AddBook></AddBook>}></Route>
     <Route path='/edit-book' element={<EditBook></EditBook>}></Route>
   </Routes>
   

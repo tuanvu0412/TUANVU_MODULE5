@@ -6,15 +6,16 @@ const BookList = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    const getBooks= async ()=>{
-      const data = await getListBook();
-      setBooks(data);
-    }
     getBooks();
+  
   }, []);
-
+  const getBooks= async ()=>{
+    const data = await getListBook();
+    setBooks(data);
+    console.log(data);
+  }
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/books/${id}`)
+    axios.delete(`http://localhost:8080/listBook/${id}`)
       .then(response => {
         alert('Delete success');
         setBooks(books.filter(book => book.id !== id));

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [quantity, setQuantity] = useState('');
-  const history = useHistory();
+
 
   const handleAddBookSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/books', { title, quantity })
+    axios.post('http://localhost:8080/listBook', { title, quantity })
       .then(response => {
         alert('Create success');
-        history.push('/');
+      
       })
       .catch(error => {
         console.log(error);
