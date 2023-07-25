@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getListBook } from '../service/bookService';
+import './book.css';
 const BookList = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     getBooks();
-  
   }, []);
   const getBooks= async ()=>{
     const data = await getListBook();
@@ -29,7 +29,7 @@ const BookList = () => {
     <div>
       <h1>Library</h1>
       <Link to="/new-book">Add a new Book</Link>
-      <table>
+      <table style={{ borderCollapse: 'collapse', width: '100%', maxWidth: '800px', margin: '0 auto' }}>
         <thead>
           <tr>
             <th>Title</th>

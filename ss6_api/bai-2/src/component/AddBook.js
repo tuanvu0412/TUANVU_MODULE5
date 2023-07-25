@@ -6,7 +6,6 @@ const AddBook = () => {
   const [title, setTitle] = useState('');
   const [quantity, setQuantity] = useState('');
 
-
   const handleAddBookSubmit = (event) => {
     event.preventDefault();
     axios.post('http://localhost:8080/listBook', { title, quantity })

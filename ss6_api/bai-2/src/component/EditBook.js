@@ -9,7 +9,7 @@ const EditBook = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/books/${id}`)
+    axios.get(`http://localhost:8080/listBook/${id}`)
       .then(response => {
         setTitle(response.data.title);
         setQuantity(response.data.quantity);
