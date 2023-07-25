@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { getUser } from "../redux/action";
 import axios from 'axios';
 import { deleteUser } from "../service/UserService";
@@ -8,24 +8,25 @@ import { deleteUser } from "../service/UserService";
 function User() {
     const dispatch = useDispatch();
 
-     const users = useSelector(state => state.users);
-    
+    const users = useSelector(state => state.users);
+
     useEffect(() => {
         dispatch(getUser());
-      }, []);
-  
+    }, []);
 
-      
-   const handelDelete=(id)=>{
-        if(window.confirm('Are you sure for delete this user???')){
-          deleteUser(`${id}`)
-           .then(reponse=>  {
-            alert('Delete success');
-           }).catch(error=>{
-            console.log(error);
-           }) 
+
+
+    const handelDelete = (id) => {
+        if (window.confirm('Are you sure for delete this user???')) {
+            deleteUser(`${id}`)
+                .then(response => {
+                    alert('Delete success');
+                    dispatch(deleteUser(id));
+                }).catch(error => {
+                    console.log(error);
+                })
         }
-   }
+    }
     return (
         <div>
             <table>
