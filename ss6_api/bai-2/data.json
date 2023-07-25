@@ -1,11 +1,6 @@
 {
   "listBook": [
     {
-      "title": "abc",
-      "quantity": "3",
-      "id": 2
-    },
-    {
       "id": 3,
       "title": "abc",
       "quantity": 2

@@ -9,20 +9,22 @@ const BookList = () => {
   useEffect(() => {
     getBooks();
   }, []);
-  const getBooks= async ()=>{
+  const getBooks = async () => {
     const data = await getListBook();
     setBooks(data);
     console.log(data);
   }
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/listBook/${id}`)
-      .then(response => {
-        alert('Delete success');
-        setBooks(books.filter(book => book.id !== id));
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (window.confirm('are you sure for delete this book?')) {
+      axios.delete(`http://localhost:8080/listBook/${id}`)
+        .then(response => {
+          alert('Delete success');
+          setBooks(books.filter(book => book.id !== id));
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   };
 
   return (

@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
 import axios from 'axios';
+import { createBook } from '../service/bookService';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [quantity, setQuantity] = useState('');
 
-  const handleAddBookSubmit = (event) => {
-    event.preventDefault();
-    axios.post('http://localhost:8080/listBook', { title, quantity })
+  const handleAddBookSubmit = async () => {
+    await createBook({ title, quantity })
       .then(response => {
         alert('Create success');
-      
       })
       .catch(error => {
         console.log(error);

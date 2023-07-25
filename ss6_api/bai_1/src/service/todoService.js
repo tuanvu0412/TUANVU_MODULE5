@@ -8,5 +8,5 @@ export async function getListTodo(){
 }
 
 export async function createTodo(todo){
-    await axios.post('http://localhost:8080/todoList',todo);
+    await axios.post('http://localhost:8080/todoList',todo)
 }
