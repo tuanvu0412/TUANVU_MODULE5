@@ -1,11 +1,8 @@
+import { Link } from "react-router-dom";
+
 function Header() {
     return (
         <div class="container-xxl bg-white p-0">
-            {/* <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div> */}
 
             <div class="container-fluid bg-dark px-0">
                 <div class="row gx-0">
@@ -50,11 +47,12 @@ function Header() {
                                     <a href="service.html" class="nav-item nav-link">Services</a>
                                     <a href="room.html" class="nav-item nav-link">Rooms</a>
                                     <div class="nav-item dropdown">
+                
                                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                        <div class="dropdown-menu rounded-0 m-0">
-                                            <a href="contract.html" class="dropdown-item">Booking</a>
-                                            <a href="other-service.html" class="dropdown-item">Orther Service</a>
-                                            <a href="customer.html" class="dropdown-item">Testimonial</a>
+                                        <div class="dropdown-menu rounded-0 m-0">   
+                                        <div> <Link to='/service'>Service Management</Link></div>
+                                        <div>  <Link to='/contract'>Contract Management</Link></div>
+                                        <li><Link to='/customer'>Customer Management</Link></li>
                                         </div>
                                     </div>
                                     <a href="contact.html" class="nav-item nav-link">Contact</a>
