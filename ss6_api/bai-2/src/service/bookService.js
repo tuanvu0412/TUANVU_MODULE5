@@ -8,3 +8,7 @@ export async function getListBook(){
 export async function createBook(book){
     await axios.post('http://localhost:8080/listBook',book);
 }
+export async function deleteBook(id){
+    const res= await axios.delete(`http://localhost:8080/listBook/${id}`)
+    return res.data
+}

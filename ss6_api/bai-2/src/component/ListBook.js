@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { getListBook } from '../service/bookService';
+import { deleteBook, getListBook } from '../service/bookService';
 import './book.css';
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -15,8 +15,8 @@ const BookList = () => {
     console.log(data);
   }
   const handleDelete = (id) => {
-    if (window.confirm('are you sure for delete this book?')) {
-      axios.delete(`http://localhost:8080/listBook/${id}`)
+    if (window.confirm('Are you sure for delete this book?')) {
+      deleteBook(`${id}`)
         .then(response => {
           alert('Delete success');
           setBooks(books.filter(book => book.id !== id));
