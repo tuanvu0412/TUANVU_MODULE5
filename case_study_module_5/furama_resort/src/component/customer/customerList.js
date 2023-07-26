@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getListCustomer } from "../service/serviceData";
-
+import { getListCustomer } from "../service/customerData";
+import axios from "axios";
 const Customer=()=> {
     const[customer,setCustomer]=useState([]);
     
@@ -38,13 +38,7 @@ const Customer=()=> {
                         <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a><a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a><table className="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <span className="custom-checkbox">
-                                            <input type="checkbox" id="selectAll" />
-                                            <label htmlFor="selectAll" />
-                                        </span>
-           
-                                    </th>
+                                    
                                     <th>STT</th>
                                     <th>Name</th>
                                     <th>Date of birth</th>
@@ -54,6 +48,7 @@ const Customer=()=> {
                                     <th>Email</th>
                                     <th>Customer type</th>
                                     <th>Address</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

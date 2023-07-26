@@ -40,17 +40,35 @@ const Service = () => {
                         <table className="table table-striped table-hover">
                             <thead>
                                 <tr>
+
                                     <th>STT</th>
-                                    <th>Name</th>
-                                    <th>Age</th>
+                                    <th>Service</th>
+                                    <th>Usable area</th>
+                                    <th>Costs</th>
+                                    <th>Max people</th>
+                                    <th>Type</th>
+                                    <th>Standard</th>
+                                    <th>Description</th>
+                                    <th>Pool</th>
+                                    <th>Floor</th>
+                                    <th>Free</th>   
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {service.map(ser => (
                                     <tr key={ser.id}>
                                         <td>{ser.id}</td>
-                                        <td>{ser.name}</td>
-                                        <td>{ser.age}</td>
+                                        <td>{ser.service}</td>
+                                        <td>{ser.usable_area}</td>
+                                        <td>{ser.costs}</td>
+                                        <td>{ser.max_people}</td>
+                                        <td>{ser.type}</td>
+                                        <td>{ser.standard}</td>
+                                        <td>{ser.description}</td>
+                                        <td>{ser.pool}</td>
+                                        <td>{ser.floor}</td>
+                                        <td>{ser.free}</td>
                                         <td>
                                             <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
                                             <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>

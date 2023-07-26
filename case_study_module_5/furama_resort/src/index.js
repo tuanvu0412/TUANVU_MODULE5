@@ -7,7 +7,7 @@ import "./bootstrap.min.css";
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Header from './component/mainpage/header';
 import Main from './component/mainpage/main';
-import Service from './component/service/serviceList';
+import Service from './component/serviceOfHotel/serviceList';
 import Footer from './component/mainpage/footer';
 import Customer from './component/customer/customerList';
 import Contract from './component/contract/contractList';
