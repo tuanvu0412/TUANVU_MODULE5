@@ -47,12 +47,12 @@ function Header() {
                                     <a href="service.html" class="nav-item nav-link">Services</a>
                                     <a href="room.html" class="nav-item nav-link">Rooms</a>
                                     <div class="nav-item dropdown">
-                
+
                                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                        <div class="dropdown-menu rounded-0 m-0">   
-                                        <div> <Link to='/service'>Service Management</Link></div>
-                                        <div>  <Link to='/contract'>Contract Management</Link></div>
-                                        <li><Link to='/customer'>Customer Management</Link></li>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <Link to='/service'><a>ServiceManagement</a></Link><br></br>        
+                                            <Link to='/contract'><a>ContractManagement</a></Link><br/>
+                                            <Link to='/customer'><a>CustomerManagement</a></Link>
                                         </div>
                                     </div>
                                     <a href="contact.html" class="nav-item nav-link">Contact</a>

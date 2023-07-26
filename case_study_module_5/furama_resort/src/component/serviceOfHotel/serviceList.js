@@ -1,4 +1,18 @@
-function Service() {
+import { useEffect } from "react";
+import { useState } from "react";
+import { getListService } from "../service/serviceData";
+
+const Service = () => {
+    const [service, setService] = useState([]);
+
+    useEffect(() => {
+        getService();
+    }, []);
+    const getService = async () => {
+        const data = await getListService();
+        setService(data);
+        console.log(data);
+    }
     return (
         <div>
             <meta charSet="utf-8" />
@@ -14,7 +28,7 @@ function Service() {
                         <div className="table-title">
                             <div className="row">
                                 <div className="col-sm-6">
-                                    <h2>Manage <b>Customer</b></h2>
+                                    <h2>Manage <b>Service</b></h2>
                                 </div>
                                 <div className="col-sm-6">
                                     <a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons"></i> <span>Add New Customer</span></a>
@@ -22,37 +36,29 @@ function Service() {
                                 </div>
                             </div>
                         </div>
-                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a><a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a><table className="table table-striped table-hover">
+                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a><a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
+                        <table className="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <span className="custom-checkbox">
-                                            <input type="checkbox" id="selectAll" />
-                                            <label htmlFor="selectAll" />
-                                        </span>
-                                    </th>
                                     <th>STT</th>
                                     <th>Name</th>
                                     <th>Age</th>
                                 </tr>
                             </thead>
-                            <tbody id="render">
-                                <tr>
-                                    <td>
-                                        <span className="custom-checkbox">
-                                            <input type="checkbox" id="checkbox5" name="options[]" defaultValue={1} />
-                                            <label htmlFor="checkbox5" />
-                                        </span>
-                                    </td>
-                                    <td>Martin Blank</td>
-                                    <td>martinblank@mail.com</td>
-                                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                                    <td>(480) 631-2097</td>
-                                    <td>
-                                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
-                                        <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
-                                    </td>
-                                </tr>
+                            <tbody>
+                                {service.map(ser => (
+                                    <tr key={ser.id}>
+                                        <td>{ser.id}</td>
+                                        <td>{ser.name}</td>
+                                        <td>{ser.age}</td>
+                                        <td>
+                                            <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+                                            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
+                                        </td>
+                                    </tr>
+                                ))
+
+                                }
                             </tbody>
                         </table>
                         <div className="clearfix">
@@ -71,9 +77,9 @@ function Service() {
                 </div>
             </div>
             {/* Edit Modal HTML */}
-       
+
             {/* Edit Modal HTML */}
-            
+
             {/* Delete Modal HTML */}
             <div id="deleteEmployeeModal" className="modal fade">
                 <div className="modal-dialog">

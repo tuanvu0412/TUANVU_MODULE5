@@ -1,4 +1,17 @@
-function Customer() {
+import { useEffect } from "react";
+import { useState } from "react";
+import { getListCustomer } from "../service/serviceData";
+
+const Customer=()=> {
+    const[customer,setCustomer]=useState([]);
+    
+    useEffect(()=>{
+       getList();
+    },[])
+    const getList= async()=>{
+        const data= await getListCustomer();
+        setCustomer(data);
+    }
     return (
         <div>
             <meta charSet="utf-8" />
@@ -30,29 +43,40 @@ function Customer() {
                                             <input type="checkbox" id="selectAll" />
                                             <label htmlFor="selectAll" />
                                         </span>
+           
                                     </th>
                                     <th>STT</th>
                                     <th>Name</th>
-                                    <th>Age</th>
+                                    <th>Date of birth</th>
+                                    <th>Gender</th>
+                                    <th>Id card</th>
+                                    <th>Phone number</th>
+                                    <th>Email</th>
+                                    <th>Customer type</th>
+                                    <th>Address</th>
                                 </tr>
                             </thead>
-                            <tbody id="render">
-                                <tr>
-                                    <td>
-                                        <span className="custom-checkbox">
-                                            <input type="checkbox" id="checkbox5" name="options[]" defaultValue={1} />
-                                            <label htmlFor="checkbox5" />
-                                        </span>
-                                    </td>
-                                    <td>Martin Blank</td>
-                                    <td>martinblank@mail.com</td>
-                                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                                    <td>(480) 631-2097</td>
-                                    <td>
-                                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
-                                        <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
-                                    </td>
-                                </tr>
+                            <tbody>
+                                {customer.map(cus =>(
+                                    <tr key={cus.id}>
+                                        <td>{cus.id}</td>
+                                        <td>{cus.name}</td>
+                                        <td>{cus.date_of_birth}</td>
+                                        <td>{cus.gender}</td>
+                                        <td>{cus.id_card}</td>
+                                        <td>{cus.phone_number}</td>
+                                        <td>{cus.email}</td>
+                                        <td>{cus.customer_type}</td>
+                                        <td>{cus.address}</td>
+                                        <td>
+                                            <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+                                            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
+                                        </td>
+                                    </tr>
+                                ))
+                                
+                                }
+                               
                             </tbody>
                         </table>
                         <div className="clearfix">
