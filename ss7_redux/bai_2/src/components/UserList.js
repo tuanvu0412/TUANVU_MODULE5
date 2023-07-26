@@ -1,14 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
-import { getUser } from "../redux/action";
-import axios from 'axios';
-import { deleteUser } from "../service/UserService";
+import { getUser, deleteUser } from "../redux/action";
 
 function User() {
     const dispatch = useDispatch();
 
     const users = useSelector(state => state.users);
+    console.log(users);
 
     useEffect(() => {
         dispatch(getUser());
@@ -18,17 +17,16 @@ function User() {
 
     const handelDelete = (id) => {
         if (window.confirm('Are you sure for delete this user???')) {
-            deleteUser(`${id}`)
-                .then(response => {
-                    alert('Delete success');
-                    dispatch(deleteUser(id));
-                }).catch(error => {
-                    console.log(error);
-                })
-        }
+            alert('Delete success');
+            dispatch(deleteUser(id));
+        } else {
+            console.log("khong thanh cong");
+        };
     }
+
     return (
         <div>
+            {console.log("aaaa" + users)}
             <table>
                 <thead>
                     <tr>
