@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import { getListCovid } from './service/covid';
 
 
 export default function Home({data}) {
@@ -33,8 +34,7 @@ export default function Home({data}) {
     )
 }
 export async function getStaticProps() {
-    const response = await axios.get('http://localhost:8080/covids')
-    const data = response.data 
+   await getListCovid();
     return {
       props: {
          data
