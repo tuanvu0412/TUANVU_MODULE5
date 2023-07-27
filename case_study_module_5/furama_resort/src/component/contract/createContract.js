@@ -1,41 +1,87 @@
+import { createContract } from "../data/contractData";
+import { useEffect, useState } from "react";
+import { getListCustomer } from "../data/customerData";
+import { getListService } from "../data/serviceData";
+import '../serviceOfHotel/formAdd.css';
+const CreateContract = () => {
+    const [selectedCustomer, setSelectedCustomer] = useState('');
+    const [selectedService, setSelectedService] = useState('');
+    const [customers, setCustomers] = useState([]);
+    const [services, setServices] = useState([]);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [deposit, setDeposit] = useState('');
 
+    const handleAddContractSubmit = async () => {
+        await createContract({ services, customers, startDate, endDate, deposit })
+            .then(response => {
+                alert('Create success');
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+    useEffect(() => {
+        getCustomer();
+        getService();
+    }, [])
 
-function CreateContract(){
-    return(
-        <div id="addEmployeeModal" className="modal fade">
-        <div className="modal-dialog">
-            <div className="modal-content">
-                <form>
-                    <div className="modal-header">
-                        <h4 className="modal-title">Add Contract</h4>
-                        <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div className="modal-body">
-                        <div className="form-group">
-                            <label>Name</label>
-                            <input type="text" className="form-control" required />
-                        </div>
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input type="email" className="form-control" required />
-                        </div>
-                        <div className="form-group">
-                            <label>Address</label>
-                            <textarea className="form-control" required defaultValue={""} />
-                        </div>
-                        <div className="form-group">
-                            <label>Phone</label>
-                            <input type="text" className="form-control" required />
-                        </div>
-                    </div>
-                    <div className="modal-footer">
-                        <input type="button" className="btn btn-default" data-dismiss="modal" defaultValue="Cancel" />
-                        <input type="submit" className="btn btn-success" defaultValue="Add" />
-                    </div>
-                </form>
-            </div>
+    const getCustomer = async () => {
+        const data = await getListCustomer();
+        setCustomers(data);
+    }
+
+    const getService = async () => {
+        const data = await getListService();
+        setServices(data);
+    }
+    return (
+        <div className='form-container'>
+            <h1>Create a new Contract</h1>
+            <form onSubmit={handleAddContractSubmit}>
+                <label>
+                    Customers:
+                    <select value={selectedCustomer} onChange={(event) => setSelectedCustomer(event.target.value)}>
+                        {Array.isArray(customers) && customers.map(customer => (
+                            <option key={customer.id} value={customer.id}>{customer.name},{customer.phone_number},{customer.email}</option>
+                        ))}
+                    </select>
+                </label>
+                <br />
+                <label>
+                    Services:
+                    <select value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>
+                        {Array.isArray(services) && services.map(service => (
+                            <option key={service.id} value={service.id}>{service.service},{service.costs},{service.quantity}</option>
+                        ))}
+                    </select>
+                </label>
+                <br />
+                <label>
+                    Start Date:
+                    <input type="date" value={startDate} onChange={(event) => setStartDate(event.target.value)} />
+                </label>
+                <br />
+                <label>
+                    End Date:
+                    <input type="date" value={endDate} onChange={(event) => setEndDate(event.target.value)} />
+                </label>
+                <br />
+                <label>
+                    Deposit:
+                    <input type="number" value={deposit} onChange={(event) => setDeposit(parseInt(event.target.value))} />
+                </label>
+                <button type="submit">Create</button>
+            </form>
         </div>
-    </div>
     )
 }
 export default CreateContract;
+
+{/* <div>
+    <select forHtml="customer">
+        {customers.map(customer => (
+            <option key value={customer}>{customer.name}</option>
+        ))};
+    </select>
+</div> */}

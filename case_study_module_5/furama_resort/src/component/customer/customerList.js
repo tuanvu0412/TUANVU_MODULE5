@@ -1,17 +1,38 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getListCustomer } from "../service/customerData";
+import { getListCustomer } from "../data/customerData";
+import Modal from './deleteModal';
 import axios from "axios";
-const Customer=()=> {
-    const[customer,setCustomer]=useState([]);
-    
-    useEffect(()=>{
-       getList();
-    },[])
-    const getList= async()=>{
-        const data= await getListCustomer();
+
+
+const Customer = () => {
+    const [customer, setCustomer] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    useEffect(() => {
+        getList();
+    }, [])
+    const getList = async () => {
+        const data = await getListCustomer();
         setCustomer(data);
     }
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
+
+    const handleDeleteItem = (id) => {
+        axios.delete(`http://localhost:8080/customers/${id}`)
+        .then(response =>{
+            setCustomer(customer.filter(cus=>cus.id!==id));
+            setShowModal(false);
+        }).catch(error=>{
+            alert(error);
+        })
+       
+    };
     return (
         <div>
             <meta charSet="utf-8" />
@@ -35,10 +56,11 @@ const Customer=()=> {
                                 </div>
                             </div>
                         </div>
-                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a><a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a><table className="table table-striped table-hover">
+                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a><a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
+                        <table className="table table-striped table-hover">
                             <thead>
                                 <tr>
-                                    
+
                                     <th>STT</th>
                                     <th>Name</th>
                                     <th>Date of birth</th>
@@ -52,7 +74,7 @@ const Customer=()=> {
                                 </tr>
                             </thead>
                             <tbody>
-                                {customer.map(cus =>(
+                                {customer.map(cus => (
                                     <tr key={cus.id}>
                                         <td>{cus.id}</td>
                                         <td>{cus.name}</td>
@@ -64,14 +86,18 @@ const Customer=()=> {
                                         <td>{cus.customer_type}</td>
                                         <td>{cus.address}</td>
                                         <td>
+                                            <button type="button" className="btn btn-danger" onClick={handleShowModal}>
+                                           Delete
+                                            </button>
+                                            <Modal show={showModal} handleClose={handleCloseModal} handleDelete={handleDeleteItem} />
                                             <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
-                                            <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
+                                           
                                         </td>
                                     </tr>
                                 ))
-                                
+
                                 }
-                               
+
                             </tbody>
                         </table>
                         <div className="clearfix">

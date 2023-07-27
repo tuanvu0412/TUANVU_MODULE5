@@ -11,6 +11,8 @@ import Service from './component/serviceOfHotel/serviceList';
 import Footer from './component/mainpage/footer';
 import Customer from './component/customer/customerList';
 import Contract from './component/contract/contractList';
+import CreateVilla from './component/serviceOfHotel/createVilla';
+import CreateContract from './component/contract/createContract';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -18,6 +20,8 @@ root.render(
         <Routes>
             <Route path='/' element={<Main></Main>}/>
             <Route path='/service'element={<Service></Service>}/>
+            <Route path='/service/villa' element={<CreateVilla></CreateVilla>}></Route>
+            <Route path='/contracts/addContract'element={<CreateContract></CreateContract>}></Route>
             <Route path='/customer'element={<Customer></Customer>}/>
             <Route path='/contract'element={<Contract></Contract>}/>
         </Routes>

@@ -1,348 +1,706 @@
 {
-    "services": [
+  "services": [
+    {
+      "id": 1,
+      "service": "BEACH HOUSE",
+      "usable_area": "50m²",
+      "costs": "1000000",
+      "max_people": "8",
+      "type": "Day",
+      "standard": "Luxury",
+      "description": "A luxury villa with 4 bedrooms and private pool",
+      "pool": "No",
+      "floor": "2",
+      "free": "No"
+    },
+    {
+      "id": 2,
+      "service": "GARDEN HOUSE",
+      "usable_area": "40m²",
+      "costs": "800000",
+      "max_people": "6",
+      "type": "Day",
+      "standard": "Deluxe",
+      "description": "A deluxe villa with 3 bedrooms and private garden",
+      "pool": "No",
+      "floor": "3",
+      "free": "No"
+    },
+    {
+      "id": 3,
+      "service": "LAKEFRONT HOUSE",
+      "usable_area": "60m²",
+      "costs": "5000000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "standard",
+      "description": "A standard apartment with 1 bedroom and balcony",
+      "pool": "No",
+      "floor": "3",
+      "free": "No"
+    },
+    {
+      "id": 4,
+      "service": "PRIVATE POOL HOUSE",
+      "usable_area": "70m²",
+      "costs": "700000",
+      "max_people": "4",
+      "type": "Day",
+      "standard": "Superior",
+      "description": "A superior apartment with 2 bedrooms and sea view",
+      "pool": "No",
+      "floor": "4",
+      "free": "No"
+    },
+    {
+      "id": 5,
+      "service": "MOUTAIN VIEW HOUSE",
+      "usable_area": "20m²",
+      "costs": "200000",
+      "max_people": "1",
+      "type": "Day",
+      "standard": "Economy",
+      "description": "An economy room with single bed",
+      "pool": "No",
+      "floor": "5",
+      "free": "No"
+    },
+    {
+      "id": 6,
+      "service": "LAKEFRONT HOUSE",
+      "usable_area": "25m²",
+      "costs": "250000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "standard",
+      "description": "A standard room with double bed",
+      "pool": "No",
+      "floor": "6",
+      "free": "No"
+    },
+    {
+      "id": 7,
+      "service": "DELUXE ROOM",
+      "usable_area": "30m²",
+      "costs": "300000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": "Breakfast"
+    },
+    {
+      "id": 8,
+      "service": "OCEAN VIEW ROOM",
+      "usable_area": "35m²",
+      "costs": "350000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": "Buffer"
+    },
+    {
+      "id": 9,
+      "service": "EXECUTIVE SUITE",
+      "usable_area": "40m²",
+      "costs": "400000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": ""
+    },
+    {
+      "id": 10,
+      "service": "FAMILY ROOM",
+      "usable_area": "45m²",
+      "costs": "450000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": "Breakfast"
+    },
+    {
+      "id": 11,
+      "service": "HONEYMOON SUITE",
+      "usable_area": "45m²",
+      "costs": "450000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": ""
+    },
+    {
+      "service": "FAMILY ROOM",
+      "usable_area": "30m²",
+      "costs": "450000",
+      "max_people": "2",
+      "type": "Day",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": "Dinner"
+    },
+    {
+      "id": 12,
+      "service": "GADERN VILLA",
+      "usable_area": "90m²",
+      "costs": "450000",
+      "max_people": "5",
+      "type": "Month",
+      "standard": "Luxury",
+      "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
+      "pool": "No",
+      "floor": "4",
+      "free": ""
+    },
+    {
+      "id": 13,
+      "service": "OCEANFRONT VILLA",
+      "usable_area": "80m²",
+      "costs": "45000000",
+      "max_people": "6",
+      "type": "Month",
+      "standard": "Economy",
+      "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
+      "pool": "10m²",
+      "floor": "5",
+      "free": ""
+    },
+    {
+      "id": 14,
+      "service": "HILLTOP VILLA",
+      "usable_area": "100m²",
+      "costs": "450000",
+      "max_people": "7",
+      "type": "Month",
+      "standard": "Economy",
+      "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
+      "pool": "",
+      "floor": "3",
+      "free": ""
+    },
+    {
+      "id": 15,
+      "service": "GRANT VILLA",
+      "usable_area": "95m²",
+      "costs": "50000000",
+      "max_people": "8",
+      "type": "Day",
+      "standard": "Superior",
+      "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
+      "pool": "12m²",
+      "floor": "4",
+      "free": ""
+    },
+    {
+      "id": 16,
+      "service": "LUXURY VILLA",
+      "usable_area": "70m²",
+      "costs": "4500000",
+      "max_people": "5",
+      "type": "Day",
+      "standard": "Luxury",
+      "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
+      "pool": "20m²",
+      "floor": "4",
+      "free": ""
+    },
+    {
+      "id": 17,
+      "service": "GRANT VILLA",
+      "usable_area": "85m²",
+      "costs": "4500000",
+      "max_people": "4",
+      "type": "Month",
+      "standard": "Superior",
+      "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
+      "pool": "15m²",
+      "floor": "4",
+      "free": "Yes"
+    },
+    {
+      "villa": "Viila 0023",
+      "usableArea": "50m2",
+      "costs": "400",
+      "maxPeople": "10",
+      "type": "week",
+      "standard": "123",
+      "description": "123",
+      "pool": "123",
+      "floor": "123",
+      "free": "1234",
+      "id": 18
+    },
+    {
+      "villa": "123",
+      "usableArea": "123",
+      "costs": "123",
+      "maxPeople": "23",
+      "type": "23",
+      "standard": "23",
+      "description": "23",
+      "pool": "123",
+      "floor": "123",
+      "free": "123",
+      "id": 19
+    },
+    {
+      "services": "123",
+      "usable_area": "213",
+      "costs": "123",
+      "max_people": "123",
+      "type": "1",
+      "standard": "123",
+      "description": "123",
+      "pool": "123",
+      "floor": "213",
+      "free": "213",
+      "id": 20
+    },
+    {
+      "service": "312",
+      "usable_area": "312",
+      "costs": "123",
+      "max_people": "123",
+      "type": [
         {
-            "id":1,
-            "service": "BEACH HOUSE",
-            "usable_area": "50m²",
-            "costs": "1000000",
-            "max_people": "8",
-            "type": "Day",
-            "standard": "Luxury",
-            "description": "A luxury villa with 4 bedrooms and private pool",
-            "pool": "No",
-            "floor": "2",
-            "free": "No"
-        },
-        {
-            "id":2,
-            "service": "GARDEN HOUSE",
-            "usable_area": "40m²",
-            "costs": "800000",
-            "max_people": "6",
-            "type": "Day",
-            "standard": "Deluxe",
-            "description": "A deluxe villa with 3 bedrooms and private garden",
-            "pool": "No",
-            "floor": "3",
-            "free": "No"
-        },
-        {
-            "id":3,
-            "service": "LAKEFRONT HOUSE",
-            "usable_area": "60m²",
-            "costs": "5000000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "standard",
-            "description": "A standard apartment with 1 bedroom and balcony",
-            "pool": "No",
-            "floor": "3",
-            "free": "No"
-        },
-        {
-            "id":4,
-            "service": "PRIVATE POOL HOUSE",
-            "usable_area": "70m²",
-            "costs": "700000",
-            "max_people": "4",
-            "type": "Day",
-            "standard": "Superior",
-            "description": "A superior apartment with 2 bedrooms and sea view",
-            "pool": "No",
-            "floor": "4",
-            "free": "No"
-        },
-        {
-            "id":5,
-            "service": "MOUTAIN VIEW HOUSE",
-            "usable_area": "20m²",
-            "costs": "200000",
-            "max_people": "1",
-            "type": "Day",
-            "standard": "Economy",
-            "description": "An economy room with single bed",
-            "pool": "No",
-            "floor": "5",
-            "free": "No"
-        },
-        {
-            "id":6,
-            "service": "LAKEFRONT HOUSE",
-            "usable_area": "25m²",
-            "costs": "250000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "standard",
-            "description": "A standard room with double bed",
-            "pool": "No",
-            "floor": "6",
-            "free": "No"
-        },
-        {
-            "id":7,
-            "service": "DELUXE ROOM",
-            "usable_area": "30m²",
-            "costs": "300000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "",
-            "description": "",
-            "pool": "",
-            "floor": "",
-            "free": "Breakfast"
-        },
-        {
-            "id":8,
-            "service": "OCEAN VIEW ROOM",
-            "usable_area": "35m²",
-            "costs": "350000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "",
-            "description": "",
-            "pool": "",
-            "floor": "",
-            "free": "Buffer"
-        },
-        {
-            "id":9,
-            "service": "EXECUTIVE SUITE",
-            "usable_area": "40m²",
-            "costs": "400000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "",
-            "description": "",
-            "pool": "",
-            "floor": "",
-            "free": ""
-        },
-        {
-            "id":10,
-            "service": "FAMILY ROOM",
-            "usable_area": "45m²",
-            "costs": "450000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "",
-            "description": "",
-            "pool": "",
-            "floor": "",
-            "free": "Breakfast"
-        },
-        {
-            "id":11,
-            "service": "HONEYMOON SUITE",
-            "usable_area": "45m²",
-            "costs": "450000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "",
-            "description": "",
-            "pool": "",
-            "floor": "",
-            "free": ""
-        },
-        {
-            "service": "FAMILY ROOM",
-            "usable_area": "30m²",
-            "costs": "450000",
-            "max_people": "2",
-            "type": "Day",
-            "standard": "",
-            "description": "",
-            "pool": "",
-            "floor": "",
-            "free": "Dinner"
-        },
-        {
-            "id":12,
-            "service": "GADERN VILLA",
-            "usable_area": "90m²",
-            "costs": "450000",
-            "max_people": "5",
-            "type": "Month",
-            "standard": "Luxury",
-            "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
-            "pool": "No",
-            "floor": "4",
-            "free": ""
-        },
-        {
-            "id":13,
-            "service": "OCEANFRONT VILLA",
-            "usable_area": "80m²",
-            "costs": "45000000",
-            "max_people": "6",
-            "type": "Month",
-            "standard": "Economy",
-            "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
-            "pool": "10m²",
-            "floor": "5",
-            "free": ""
-        },
-        {
-            "id":14,
-            "service": "HILLTOP VILLA",
-            "usable_area": "100m²",
-            "costs": "450000",
-            "max_people": "7",
-            "type": "Month",
-            "standard": "Economy",
-            "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
-            "pool": "",
-            "floor": "3",
-            "free": ""
-        },
-        {
-            "id":15,
-            "service": "GRANT VILLA",
-            "usable_area": "95m²",
-            "costs": "50000000",
-            "max_people": "8",
-            "type": "Day",
-            "standard": "Superior",
-            "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
-            "pool": "12m²",
-            "floor": "4",
-            "free": ""
-        },
-        { "id":16,
-            "service": "LUXURY VILLA",
-            "usable_area": "70m²",
-            "costs": "4500000",
-            "max_people": "5",
-            "type": "Day",
-            "standard": "Luxury",
-            "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
-            "pool": "20m²",
-            "floor": "4",
-            "free": ""
-        },
-        {
-            "id":17,
-            "service": "GRANT VILLA",
-            "usable_area": "85m²",
-            "costs": "4500000",
-            "max_people": "4",
-            "type": "Month",
-            "standard": "Superior",
-            "description": "A luxury room with double bed, sea view, balcony and jacuzzi",
-            "pool": "15m²",
-            "floor": "4",
-            "free": "Yes"
+          "id": 1,
+          "name": "day"
         }
-    ],
-    "customers": [
+      ],
+      "standard": "123",
+      "description": "123",
+      "pool": "123",
+      "floor": "123",
+      "free": "123",
+      "id": 21
+    },
+    {
+      "service": "123",
+      "usable_area": "123",
+      "costs": "123",
+      "max_people": "123",
+      "type": [
         {
-            "id": "1",
-            "name": "Nguyen Van A",
-            "date_of_birth": "01/01/1990",
-            "gender": "Male",
-            "id_card": "123456789",
-            "phone_number": "0123456789",
-            "email": "nguyenvana@gmail.com",
-            "customer_type": "Regular",
-            "address": "No.1 Street A, District 1, Ho Chi Minh City"
-        },
-        {
-            "id": "2",
-            "name": "Tran Thi B",
-            "date_of_birth": "02/02/1995",
-            "gender": "Female",
-            "id_card": "987654321",
-            "phone_number": "0987654321",
-            "email": "tranthib@yahoo.com",
-            "customer_type": "Regular",
-            "address": "No.2 Street B, District 2, Ho Chi Minh City"
-        },
-        {
-            "id": "3",
-            "name": "Le Minh C",
-            "date_of_birth": "03/03/1985",
-            "gender": "Male",
-            "id_card": "456789123",
-            "phone_number": "0567891234",
-            "email": "leminhc@hotmail.com",
-            "customer_type": "VIP",
-            "address": "No.3 Street C, District 3, Ho Chi Minh City"
-        },
-        {
-            "id": "4",
-            "name": "Pham Thi D",
-            "date_of_birth": "04/04/1992",
-            "gender": "Female",
-            "id_card": "369852147",
-            "phone_number": "0369852147",
-            "email": "phamthid@gmail.com",
-            "customer_type": "Regular",
-            "address": "No.4 Street D, District 4, Ho Chi Minh City"
-        },
-        {
-            "id": "5",
-            "name": "Hoang Van E",
-            "date_of_birth": "05/05/1988",
-            "gender": "Male",
-            "id_card": "258147369",
-            "phone_number": "0258147369",
-            "email": "hoangvane@yahoo.com",
-            "customer_type": "VIP",
-            "address": "No.5 Street E, District 5, Ho Chi Minh City"
-        },
-        {
-            "id": "6",
-            "name": "Nguyen Thi F",
-            "date_of_birth": "06/06/1991",
-            "gender": "Female",
-            "id_card": "147258369",
-            "phone_number": "0147258369",
-            "email": "nguyenthif@hotmail.com",
-            "customer_type": "Regular",
-            "address": "No.6 Street F, District 6, Ho Chi Minh City"
-        },
-        {
-            "id": "7",
-            "name": "Tran Van G",
-            "date_of_birth": "07/07/1987",
-            "gender": "Male",
-            "id_card": "963852741",
-            "phone_number": "0963852741",
-            "email": "tranvang@gmail.com",
-            "customer_type": "VIP",
-            "address": "No.7 Street G, District 7, Ho Chi Minh City"
-        },
-        {
-            "id": "8",
-            "name": "Le Thi H",
-            "date_of_birth": "08/08/1994",
-            "gender": "Female",
-            "id_card": "741852963",
-            "phone_number": "0741852963",
-            "email": "lethih@yahoo.com",
-            "customer_type": "Regular",
-            "address": "No.8 Street H, District 8, Ho Chi Minh City"
-        },
-        {
-            "id": "9",
-            "name": "Phan Van I",
-            "date_of_birth": "09/09/1986",
-            "gender": "Male",
-            "id_card": "852741963",
-            "phone_number": "0852741963",
-            "email": "phanvani@hotmail.com",
-            "customer_type": "Regular",
-            "address": "No.9 Street I, District 9, Ho Chi Minh City"
-        },
-        {
-            "id": "10",
-            "name": "Tran Thi K",
-            "date_of_birth": "10/10/1993",
-            "gender": "Female",
-            "id_card": "654321987",
-            "phone_number": "0654321987",
-            "email": "tranthik@gmail.com",
-            "customer_type": "VIP",
-            "address": "No.10 Street K, District 10, Ho Chi Minh City"
+          "id": 1,
+          "name": "day"
         }
-    ]
+      ],
+      "standard": "1234",
+      "description": "123",
+      "pool": "123",
+      "floor": "4123",
+      "free": "123",
+      "id": 22
+    },
+    {
+      "service": "123",
+      "usable_area": "123",
+      "costs": "123",
+      "max_people": "",
+      "type": [
+        {
+          "id": 1,
+          "name": "day"
+        },
+        {
+          "id": 2,
+          "name": "week"
+        },
+        {
+          "id": 3,
+          "name": "month"
+        }
+      ],
+      "standard": "1234",
+      "description": "123",
+      "pool": "123",
+      "floor": "123412",
+      "free": "213",
+      "id": 23
+    },
+    {
+      "service": "qưe",
+      "usable_area": "qưe",
+      "costs": "qưe",
+      "max_people": "qưe",
+      "type": [
+        {
+          "id": 1,
+          "name": "day"
+        },
+        {
+          "id": 2,
+          "name": "week"
+        },
+        {
+          "id": 3,
+          "name": "month"
+        }
+      ],
+      "standard": "qưe",
+      "description": "qưe",
+      "pool": "qưe",
+      "floor": "ưqe",
+      "free": "qưe",
+      "id": 24
+    },
+    {
+      "service": "123",
+      "usable_area": "123",
+      "costs": "123",
+      "max_people": "123",
+      "type": [
+        {
+          "id": 1,
+          "name": "day"
+        },
+        {
+          "id": 2,
+          "name": "week"
+        },
+        {
+          "id": 3,
+          "name": "month"
+        }
+      ],
+      "standard": "123",
+      "description": "12",
+      "pool": "123",
+      "floor": "123",
+      "free": "132",
+      "id": 25
+    },
+    {
+      "service": "123",
+      "usable_area": "123",
+      "costs": "123",
+      "max_people": "123",
+      "type": [
+        {
+          "id": 1,
+          "name": "day"
+        },
+        {
+          "id": 2,
+          "name": "week"
+        },
+        {
+          "id": 3,
+          "name": "month"
+        }
+      ],
+      "standard": "123",
+      "description": "123",
+      "pool": "123",
+      "floor": "123",
+      "free": "123",
+      "id": 26
+    },
+    {
+      "service": "d",
+      "usable_area": "d",
+      "costs": "d",
+      "max_people": "d",
+      "type": "month",
+      "standard": "d",
+      "description": "d",
+      "pool": "d",
+      "floor": "d",
+      "free": "d",
+      "id": 27
+    },
+    {
+      "service": "1",
+      "usable_area": "1",
+      "costs": "1",
+      "max_people": "1",
+      "type": "",
+      "standard": "1",
+      "description": "1",
+      "pool": "1",
+      "floor": "1",
+      "free": "1",
+      "id": 28
+    },
+    {
+      "service": "2",
+      "usable_area": "2",
+      "costs": "2",
+      "max_people": "2",
+      "type": "",
+      "standard": "2",
+      "description": "2",
+      "pool": "2",
+      "floor": "2",
+      "free": "2",
+      "id": 29
+    },
+    {
+      "service": "",
+      "usable_area": "",
+      "costs": "",
+      "max_people": "",
+      "type": "2",
+      "standard": "",
+      "description": "",
+      "pool": "",
+      "floor": "",
+      "free": "",
+      "id": 30
+    },
+    {
+      "villa": "123",
+      "area": "312",
+      "people": "123",
+      "standard": "123",
+      "description": "123",
+      "pool": "123",
+      "floor": "123",
+      "free": "123",
+      "types": [
+        {
+          "id": 1,
+          "name": "day"
+        },
+        {
+          "id": 2,
+          "name": "week"
+        },
+        {
+          "id": 3,
+          "name": "month"
+        }
+      ],
+      "costs": "123",
+      "id": 31
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "day"
+    },
+    {
+      "id": 2,
+      "name": "week"
+    },
+    {
+      "id": 3,
+      "name": "month"
+    }
+  ],
+  "customers": [
+    {
+      "id": "1",
+      "name": "Nguyen Van A",
+      "date_of_birth": "01/01/1990",
+      "gender": "Male",
+      "id_card": "123456789",
+      "phone_number": "0123456789",
+      "email": "nguyenvana@gmail.com",
+      "customer_type": "Regular",
+      "address": "No.1 Street A, District 1, Ho Chi Minh City"
+    },
+    {
+      "id": "2",
+      "name": "Tran Thi B",
+      "date_of_birth": "02/02/1995",
+      "gender": "Female",
+      "id_card": "987654321",
+      "phone_number": "0987654321",
+      "email": "tranthib@yahoo.com",
+      "customer_type": "Regular",
+      "address": "No.2 Street B, District 2, Ho Chi Minh City"
+    },
+    {
+      "id": "3",
+      "name": "Le Minh C",
+      "date_of_birth": "03/03/1985",
+      "gender": "Male",
+      "id_card": "456789123",
+      "phone_number": "0567891234",
+      "email": "leminhc@hotmail.com",
+      "customer_type": "VIP",
+      "address": "No.3 Street C, District 3, Ho Chi Minh City"
+    },
+    {
+      "id": "4",
+      "name": "Pham Thi D",
+      "date_of_birth": "04/04/1992",
+      "gender": "Female",
+      "id_card": "369852147",
+      "phone_number": "0369852147",
+      "email": "phamthid@gmail.com",
+      "customer_type": "Regular",
+      "address": "No.4 Street D, District 4, Ho Chi Minh City"
+    },
+    {
+      "id": "5",
+      "name": "Hoang Van E",
+      "date_of_birth": "05/05/1988",
+      "gender": "Male",
+      "id_card": "258147369",
+      "phone_number": "0258147369",
+      "email": "hoangvane@yahoo.com",
+      "customer_type": "VIP",
+      "address": "No.5 Street E, District 5, Ho Chi Minh City"
+    },
+    {
+      "id": "6",
+      "name": "Nguyen Thi F",
+      "date_of_birth": "06/06/1991",
+      "gender": "Female",
+      "id_card": "147258369",
+      "phone_number": "0147258369",
+      "email": "nguyenthif@hotmail.com",
+      "customer_type": "Regular",
+      "address": "No.6 Street F, District 6, Ho Chi Minh City"
+    },
+    {
+      "id": "7",
+      "name": "Tran Van G",
+      "date_of_birth": "07/07/1987",
+      "gender": "Male",
+      "id_card": "963852741",
+      "phone_number": "0963852741",
+      "email": "tranvang@gmail.com",
+      "customer_type": "VIP",
+      "address": "No.7 Street G, District 7, Ho Chi Minh City"
+    },
+    {
+      "id": "8",
+      "name": "Le Thi H",
+      "date_of_birth": "08/08/1994",
+      "gender": "Female",
+      "id_card": "741852963",
+      "phone_number": "0741852963",
+      "email": "lethih@yahoo.com",
+      "customer_type": "Regular",
+      "address": "No.8 Street H, District 8, Ho Chi Minh City"
+    },
+    {
+      "id": "9",
+      "name": "Phan Van I",
+      "date_of_birth": "09/09/1986",
+      "gender": "Male",
+      "id_card": "852741963",
+      "phone_number": "0852741963",
+      "email": "phanvani@hotmail.com",
+      "customer_type": "Regular",
+      "address": "No.9 Street I, District 9, Ho Chi Minh City"
+    },
+    {
+      "id": "10",
+      "name": "Tran Thi K",
+      "date_of_birth": "10/10/1993",
+      "gender": "Female",
+      "id_card": "654321987",
+      "phone_number": "0654321987",
+      "email": "tranthik@gmail.com",
+      "customer_type": "VIP",
+      "address": "No.10 Street K, District 10, Ho Chi Minh City"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "customers": {
+        "id": 1,
+        "name": "John Smith",
+        "phone_number": "123456789",
+        "email": "john.smith@email.com"
+      },
+      "services": {
+        "id": 1,
+        "service": "Luxury Suite",
+        "costs": 200,
+        "quantity": 1
+      },
+      "startDate": "2023-08-01",
+      "endDate": "2023-08-08",
+      "deposit": 100
+    },
+    {
+      "id": 2,
+      "customers": {
+        "name": "John Smith",
+        "phone_number": "123456789",
+        "email": "john.smith@email.com"
+      },
+      "services": {
+        "id": 2,
+        "service": "Luxury Suite",
+        "costs": 200,
+        "quantity": 1
+      },
+      "startDate": "2023-08-01",
+      "endDate": "2023-08-08",
+      "deposit": 100
+    },
+    {
+      "id": 3,
+      "customers": {
+        "id": 3,
+        "name": "John Smith",
+        "phone_number": "123456789",
+        "email": "john.smith@email.com"
+      },
+      "services": {
+        "service": "Luxury Suite",
+        "costs": 200,
+        "quantity": 1
+      },
+      "startDate": "2023-08-01",
+      "endDate": "2023-08-08",
+      "deposit": 100
+    },
+    {
+      "id": 4,
+      "customers": {
+        "name": "John Smith",
+        "phone_number": "123456789",
+        "email": "john.smith@email.com"
+      },
+      "services": {
+        "service": "Luxury Suite",
+        "costs": 200,
+        "quantity": 1
+      },
+      "startDate": "2023-08-01",
+      "endDate": "2023-08-08",
+      "deposit": 100
+    },
+    {
+      "id": 5,
+      "customers": {
+        "name": "John Smith",
+        "phone_number": "123456789",
+        "email": "john.smith@email.com"
+      },
+      "services": {
+        "service": "Luxury Suite",
+        "costs": 200,
+        "quantity": 1
+      },
+      "startDate": "2023-08-01",
+      "endDate": "2023-08-08",
+      "deposit": 100
+    }
+  ]
 }

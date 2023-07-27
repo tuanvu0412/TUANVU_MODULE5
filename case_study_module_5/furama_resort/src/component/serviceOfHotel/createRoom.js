@@ -1,43 +1,75 @@
-function CreateRoom() {
+import React, { useState } from 'react';
+
+import axios from 'axios';
+import { createVilla } from '../data/serviceData';
+import './formAdd.css';
+const CreateRoom = () => {
+    const [villa, setVilla] = useState('');
+    const [usableArea, setUsableArea] = useState('');
+    const [costs, setCosts] = useState('');
+    const [maxPeople, setMaxPeople] = useState('');
+    const [type, setType] = useState('');
+    const [standard, setStandard] = useState('');
+    const [description, setDescription] = useState('');
+    const [pool, setPool] = useState('');
+    const [floor, setFloor] = useState('');
+    const [free, setFree] = useState('');
+    const handleAddVillaSubmit = async () => {
+        await createVilla({ villa, usableArea, costs, maxPeople, type, standard, description, pool, floor, free })
+            .then(response => {
+                alert('Create success');
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
     return (
-        <div>
-            
-            {/* Add Modal HTML */}
-            <div id="addEmployeeModal" className="modal fade">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <form>
-                            <div className="modal-header">
-                                <h4 className="modal-title">Add Contract</h4>
-                                <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div className="modal-body">
-                                <div className="form-group">
-                                    <label>Name</label>
-                                    <input type="text" className="form-control" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email</label>
-                                    <input type="email" className="form-control" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Address</label>
-                                    <textarea className="form-control" required defaultValue={""} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" className="form-control" required />
-                                </div>
-                            </div>
-                            <div className="modal-footer">
-                                <input type="button" className="btn btn-default" data-dismiss="modal" defaultValue="Cancel" />
-                                <input type="submit" className="btn btn-success" defaultValue="Add" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div className='form-container'>
+            <h1>Create a new Villa</h1>
+            <form onSubmit={handleAddVillaSubmit}>
+                <label>
+                    Villa:
+                    <input type="text" value={villa} onChange={(event) => setVilla(event.target.value)} />
+                </label>
+                <label>
+                    Usable area:
+                    <input type="text" value={usableArea} onChange={(event) => setUsableArea(event.target.value)} />
+                </label>
+                <label>
+                    Costs:
+                    <input type="text" value={costs} onChange={(event) => setCosts(event.target.value)} />
+                </label>
+                <label>
+                    Max people:
+                    <input type="text" value={maxPeople} onChange={(event) => setMaxPeople(event.target.value)} />
+                </label>
+                <label>
+                    Type:
+                    <input type="text" value={type} onChange={(event) => setType(event.target.value)} />
+                </label>
+                <label>
+                    Standard:
+                    <input type="text" value={standard} onChange={(event) => setStandard(event.target.value)} />
+                </label>
+                <label>
+                    Description:
+                    <input type="text" value={description} onChange={(event) => setDescription(event.target.value)} />
+                </label>
+                <label>
+                    Pool:
+                    <input type="text" value={pool} onChange={(event) => setPool(event.target.value)} />
+                </label>
+                <label>
+                    floor:
+                    <input type="text" value={floor} onChange={(event) => setFloor(event.target.value)} />
+                </label>
+                <label>
+                    Free:
+                    <input type="text" value={free} onChange={(event) => setFree(event.target.value)} />
+                </label>
+                <button type="submit">Create</button>
+            </form>
         </div>
     );
-}
+};
 export default CreateRoom;

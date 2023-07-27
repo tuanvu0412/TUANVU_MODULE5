@@ -1,4 +1,16 @@
-function Contract() {
+import React, { useEffect, useState } from "react";
+import { getListContract } from "../data/contractData";
+import { Link } from "react-router-dom";
+const Contract = () => {
+    const [contracts, setContract] = useState([]);
+
+    useEffect(() => {
+        getContract();
+    }, []);
+    const getContract = async () => {
+        const data = await getListContract();
+        setContract(data);
+    }
     return (
         <div>
             <meta charSet="utf-8" />
@@ -17,38 +29,41 @@ function Contract() {
                                     <h2>Manage <b>Contract</b></h2>
                                 </div>
                                 <div className="col-sm-6">
-                                    <a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons"></i> <span>Add New Customer</span></a>
-                                    <a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal"><i className="material-icons"></i> <span>Delete</span></a>
+                                <Link to='/contracts/addContract'><i className="material-icons"></i> <span>Add New Contract</span></Link>
                                 </div>
                             </div>
                         </div>
-                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a><a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a><table className="table table-striped table-hover">
+                        <table  className="table table-striped table-hover">
                             <thead>
                                 <tr>
-                    
-                                    <th>STT</th>
+                                    <th>ID</th>
                                     <th>Name</th>
-                                    <th>Age</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Service</th>
+                                    <th>Costs</th>
+                                    <th>Quantity</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Deposit</th>
                                 </tr>
                             </thead>
-                            <tbody id="render">
-                                <tr>
-                                    <td>
-                                        <span className="custom-checkbox">
-                                            <input type="checkbox" id="checkbox5" name="options[]" defaultValue={1} />
-                                            <label htmlFor="checkbox5" />
-                                        </span>
-                                    </td>
-                                    <td>Martin Blank</td>
-                                    <td>martinblank@mail.com</td>
-                                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                                    <td>(480) 631-2097</td>
-                                    <td>
-                                        <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
-                                        <a href="#deleteEmployeeModal" className="delete" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <tbody>
+                                {contracts.map(contract => (
+                                    <tr key={contract.id}>
+                                        <td>{contract.id}</td>
+                                        <td>{contract.customers.name}</td>
+                                        <td>{contract.customers.phone_number}</td>
+                                        <td>{contract.customers.email}</td>
+                                        <td>{contract.services.service}</td>
+                                        <td>{contract.services.costs}</td>
+                                        <td>{contract.services.quantity}</td>
+                                        <td>{contract.startDate}</td>
+                                        <td>{contract.endDate}</td>
+                                        <td>{contract.deposit}</td>
+                                    </tr>
+                                ))}
+                            </tbody> 
                         </table>
                         <div className="clearfix">
                             <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
@@ -62,63 +77,6 @@ function Contract() {
                                 <li className="page-item"><a href="#" className="page-link">Next</a></li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-            {/* Add Modal HTML */}
-            <div id="addEmployeeModal" className="modal fade">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <form>
-                            <div className="modal-header">
-                                <h4 className="modal-title">Add Contract</h4>
-                                <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div className="modal-body">
-                                <div className="form-group">
-                                    <label>Name</label>
-                                    <input type="text" className="form-control" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email</label>
-                                    <input type="email" className="form-control" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Address</label>
-                                    <textarea className="form-control" required defaultValue={""} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" className="form-control" required />
-                                </div>
-                            </div>
-                            <div className="modal-footer">
-                                <input type="button" className="btn btn-default" data-dismiss="modal" defaultValue="Cancel" />
-                                <input type="submit" className="btn btn-success" defaultValue="Add" />
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-          
-            {/* Delete Modal HTML */}
-            <div id="deleteEmployeeModal" className="modal fade">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <form>
-                            <div className="modal-header">
-                                <h4 className="modal-title">Delete Contract</h4>
-                                <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div className="modal-body">
-                                <p>Are you sure you want to delete these Records?</p>
-                                <p className="text-warning"><small>This action cannot be undone.</small></p>
-                            </div>
-                            <div className="modal-footer">
-                                <input type="button" className="btn btn-default" data-dismiss="modal" defaultValue="Cancel" />
-                                <input type="submit" className="btn btn-danger" defaultValue="Delete" />
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
