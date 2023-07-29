@@ -1,33 +1,28 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { getListCustomer } from "../data/customerData";
+import { getListCustomer, getListTypeCustomer } from "../data/customerData";
 import Modal from './deleteModal';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 const Customer = () => {
-    const [customer, setCustomer] = useState([]);
-    const [showModal, setShowModal] = useState(false);
+    const [customers, setCustomers] = useState([]);
+    
     useEffect(() => {
         getList();
+        getListTypeCustomer();
     }, [])
     const getList = async () => {
         const data = await getListCustomer();
-        setCustomer(data);
+        setCustomers(data);
     }
-    const handleShowModal = () => {
-        setShowModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
-
+   
     const handleDeleteItem = (id) => {
         axios.delete(`http://localhost:8080/customers/${id}`)
         .then(response =>{
-            setCustomer(customer.filter(cus=>cus.id!==id));
-            setShowModal(false);
+            setCustomers(customers.filter(cus=>cus.id!==id));
+            
         }).catch(error=>{
             alert(error);
         })
@@ -51,8 +46,7 @@ const Customer = () => {
                                     <h2>Manage <b>Customer</b></h2>
                                 </div>
                                 <div className="col-sm-6">
-                                    <a href="#addEmployeeModal" className="btn btn-success" data-toggle="modal"><i className="material-icons"></i> <span>Add New Customer</span></a>
-                                    <a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal"><i className="material-icons"></i> <span>Delete</span></a>
+                                <Link to='/customers/customer'><i className="material-icons"></i> <span>Add New Customer</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -74,22 +68,22 @@ const Customer = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {customer.map(cus => (
+                                {customers.map(cus => (
                                     <tr key={cus.id}>
                                         <td>{cus.id}</td>
                                         <td>{cus.name}</td>
                                         <td>{cus.date_of_birth}</td>
-                                        <td>{cus.gender}</td>
+                                        <td>{cus.gender.name}</td>
                                         <td>{cus.id_card}</td>
                                         <td>{cus.phone_number}</td>
                                         <td>{cus.email}</td>
-                                        <td>{cus.customer_type}</td>
+                                        <td>{cus.customerTypes.name}</td>
                                         <td>{cus.address}</td>
                                         <td>
-                                            <button type="button" className="btn btn-danger" onClick={handleShowModal}>
+                                            <button type="button" className="btn btn-danger" onClick={handleDeleteItem}>
                                            Delete
                                             </button>
-                                            <Modal show={showModal} handleClose={handleCloseModal} handleDelete={handleDeleteItem} />
+                                        
                                             <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
                                            
                                         </td>

@@ -1,74 +1,124 @@
-import React, { useState } from 'react';
-
-import axios from 'axios';
-import { createVilla } from '../data/serviceData';
+import React, { useEffect, useState } from 'react';
+import * as yup from "yup";
+import { createHouse, createRoom, createVilla, findById, getListType } from '../data/serviceData';
 import './formAdd.css';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import Swal from 'sweetalert2'
 const CreateHouse = () => {
-    const [house, setHouse] = useState('');
-    const [usableArea, setUsableArea] = useState('');
-    const [costs, setCosts] = useState('');
-    const [maxPeople, setMaxPeople] = useState('');
-    const [type, setType] = useState('');
-    const [standard, setStandard] = useState('');
-    const [description, setDescription] = useState('');
-    const [pool, setPool] = useState('');
-    const [floor, setFloor] = useState('');
-    const [free, setFree] = useState('');
-    const handleAddVillaSubmit = async () => {
-        await createVilla({ house, usableArea, costs, maxPeople, type, standard, description, pool, floor, free })
-            .then(response => {
-                alert('Create success');
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+    const [types, setTypes] = useState([]);
+
+    const handleAddVillaSubmit = async (values) => {  
+        const type = await findById(values.types);
+        const data = { ...values, types: type }   
+        try {
+          await createHouse(data);
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'House created successfully.',
+          });
+        
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+    useEffect(() => {
+        getType();
+    }, []);
+    const getType = async () => {
+        const data = await getListType();
+        if (data !== null) {
+            setTypes(data);
+        }
+    }
+
     return (
-        <div className='form-container'>
-            <h1>Create a new Villa</h1>
-            <form onSubmit={handleAddVillaSubmit}>
-                <label>
-                    House:
-                    <input type="text" value={house} onChange={(event) => setHouse(event.target.value)} />
-                </label>
-                <label>
-                    Usable area:
-                    <input type="text" value={usableArea} onChange={(event) => setUsableArea(event.target.value)} />
-                </label>
-                <label>
-                    Costs:
-                    <input type="text" value={costs} onChange={(event) => setCosts(event.target.value)} />
-                </label>
-                <label>
-                    Max people:
-                    <input type="text" value={maxPeople} onChange={(event) => setMaxPeople(event.target.value)} />
-                </label>
-                <label>
-                    Type:
-                    <input type="text" value={type} onChange={(event) => setType(event.target.value)} />
-                </label>
-                <label>
-                    Standard:
-                    <input type="text" value={standard} onChange={(event) => setStandard(event.target.value)} />
-                </label>
-                <label>
-                    Description:
-                    <input type="text" value={description} onChange={(event) => setDescription(event.target.value)} />
-                </label>
-                <label>
-                    Pool:
-                    <input type="text" value={pool} onChange={(event) => setPool(event.target.value)} />
-                </label>
-                <label>
-                    floor:
-                    <input type="text" value={floor} onChange={(event) => setFloor(event.target.value)} />
-                </label>
-                <label>
-                    Free:
-                    <input type="text" value={free} onChange={(event) => setFree(event.target.value)} />
-                </label>
-                <button type="submit">Create</button>
-            </form>
+        <div className='form-2'>
+            <h1>Create a new House</h1>
+            <Formik
+                onSubmit={handleAddVillaSubmit}
+                initialValues={{
+                    service: "", usable_area: "", max_people: "", standard: "",
+                    description: "", pool: "", floor: "", free: "",
+                    types: "", costs: "",
+
+                }}
+                validationSchema={yup.object({
+                    service: yup.string().required(),
+                    // email: yup.string().required('email không được để trống').matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "địa chỉ email không hợp lệ"),
+                    // namSinh: yup.string().required('năm sinh không được để trống').matches(/^(19[0-9]{2}|[2-9][0-9]{3})+$/, "năm sinh phải lớn hơn 1900"),
+                    usable_area: yup.string().required(),
+                    max_people: yup.string().required(),
+                    standard: yup.string().required(),
+                    description: yup.string().required(),
+                    pool: yup.string().required(),
+                    floor: yup.string().required(),
+                    free: yup.string().required(),
+                    costs: yup.string().required(),
+                    types: yup.string().required(),
+                  
+                })}
+            >
+                <Form>
+                    <div>
+                        <label htmlFor='service'>   House: </label>
+                        <Field id='service' type="text" name='service' />
+                        <ErrorMessage name="service" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='usable_area'> Usable area:</label>
+                        <Field id='usable_area' type="text" name='usable_area' />
+                        <ErrorMessage name="usable_area" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='costs'> Costs:</label>
+                        <Field id='costs' type="text" name='costs' />
+                        <ErrorMessage name="costs" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='max_people'> Peoples:</label>
+                        <Field id='max_people' type="text" name='max_people' />
+                        <ErrorMessage name="max_people" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='type'> Types:</label>
+                        <Field as='select' id='type' name='types'>
+                            <option value={""}>select</option>
+                            {types.length > 0 && types.map(t => (
+                                <option key={t.id} value={t.id}>{t.name}</option>
+                            ))}
+                        </Field>
+                    </div>
+                    <div>
+                        <label htmlFor='standard'> Peoples:</label>
+                        <Field id='standard' type="text" name='standard' />
+                        <ErrorMessage name="standard" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='description'> Description:</label>
+                        <Field id='description' type="text" name='description' />
+                        <ErrorMessage name="description" className='text-area' />
+                    </div>
+
+                    <div>
+                        <label htmlFor='pool'> Pool:</label>
+                        <Field id='pool' type="text" name='pool' />
+                        <ErrorMessage name="pool" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='floor'> Floor:</label>
+                        <Field id='floor' type="text" name='floor' />
+                        <ErrorMessage name="floor" className='text-area' />
+                    </div>
+                    <div>
+                        <label htmlFor='free'> Free:</label>
+                        <Field id='free' type="text" name='free' />
+                        <ErrorMessage name="free" className='text-area' />
+                    </div>
+                    <button type="submit">Create</button>
+                </Form>
+            </Formik>
         </div>
     );
 };

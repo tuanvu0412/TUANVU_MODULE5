@@ -1,65 +1,79 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from "yup";
-import { createVilla, findByid, getListType } from '../data/serviceData';
+import { createVilla, findById, getListType } from '../data/serviceData';
 import './formAdd.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import Swal from 'sweetalert2'
 const CreateVilla = () => {
     const [types, setTypes] = useState([]);
-    const handleAddVillaSubmit = async (value) => {
 
-        console.log(value);
-        const type = await findByid(value.types);
-        const data = { ...value, types: type }
-       
-        await createVilla(data)
-            .then(response => {
-                alert('Create success');
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+    const handleAddVillaSubmit = async (values) => {
+        console.log('123123' + values);
+        const type = await findById(values.types);
+        const data = { ...values, types: type }
+        console.log('312312312' + data);
+        
+        try {
+          await createVilla(data);
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Villa created successfully.',
+          });
+        
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
     useEffect(() => {
         getType();
     }, []);
     const getType = async () => {
         const data = await getListType();
-        setTypes(data);
+
+        if (data !== null) {
+            setTypes(data);
+        }
     }
+
     return (
-        <div className='form-2  '>
+        <div className='form-2'>
             <h1>Create a new Villa</h1>
             <Formik
                 onSubmit={handleAddVillaSubmit}
                 initialValues={{
-                    villa: "", area: "", people: "", standard: "",
+                    service: "", usable_area: "", max_people: "", standard: "",
                     description: "", pool: "", floor: "", free: "",
-                    types: "",
+                    types: "", costs: "",
+
                 }}
                 validationSchema={yup.object({
-                    villa: yup.string().required('tên không được để trống'),
+                    service: yup.string().required(),
                     // email: yup.string().required('email không được để trống').matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "địa chỉ email không hợp lệ"),
                     // namSinh: yup.string().required('năm sinh không được để trống').matches(/^(19[0-9]{2}|[2-9][0-9]{3})+$/, "năm sinh phải lớn hơn 1900"),
-                    area: yup.string().required('quốc tịch không được để trống'),
-                    people: yup.string().required('tỉnh thành không được để trống'),
-                    standard: yup.string().required('quân huyện không được để trống'),
-                    description: yup.string().required('phường xã không được để trống'),
-                    pool: yup.string().required('số nhà không được để trống'),
-                    floor: yup.string().required('số điện thoại không được để trống'),
-                    free: yup.string().required('số CMND/Hộ chiếu không được để trống'),
+                    usable_area: yup.string().required(),
+                    max_people: yup.string().required(),
+                    standard: yup.string().required(),
+                    description: yup.string().required(),
+                    pool: yup.string().required(),
+                    floor: yup.string().required(),
+                    free: yup.string().required(),
+                    costs: yup.string().required(),
+                    types: yup.string().required(),
+                  
                 })}
             >
                 <Form>
                     <div>
-                        <label htmlFor='villa'>   Villa: </label>
-                        <Field id='villa' type="text" name='villa' />
-                        <ErrorMessage name="villa" className='text-area' />
+                        <label htmlFor='service'>   Villa: </label>
+                        <Field id='service' type="text" name='service' />
+                        <ErrorMessage name="service" className='text-area' />
                     </div>
                     <div>
-                        <label htmlFor='area'> Usable area:</label>
-                        <Field id='area' type="text" name='area' />
-                        <ErrorMessage name="area" className='text-area' />
+                        <label htmlFor='usable_area'> Usable area:</label>
+                        <Field id='usable_area' type="text" name='usable_area' />
+                        <ErrorMessage name="usable_area" className='text-area' />
                     </div>
                     <div>
                         <label htmlFor='costs'> Costs:</label>
@@ -67,13 +81,14 @@ const CreateVilla = () => {
                         <ErrorMessage name="costs" className='text-area' />
                     </div>
                     <div>
-                        <label htmlFor='people'> Peoples:</label>
-                        <Field id='people' type="text" name='people' />
-                        <ErrorMessage name="people" className='text-area' />
+                        <label htmlFor='max_people'> Peoples:</label>
+                        <Field id='max_people' type="text" name='max_people' />
+                        <ErrorMessage name="max_people" className='text-area' />
                     </div>
                     <div>
                         <label htmlFor='type'> Types:</label>
                         <Field as='select' id='type' name='types'>
+                            <option value={""}></option>
                             {types.length > 0 && types.map(t => (
                                 <option key={t.id} value={t.id}>{t.name}</option>
                             ))}
@@ -87,7 +102,7 @@ const CreateVilla = () => {
                     <div>
                         <label htmlFor='description'> Description:</label>
                         <Field id='description' type="text" name='description' />
-                        <ErrorMessage name="description" className='text-area' />
+                        <ErrorMessage name="description" className='text-red' />
                     </div>
 
                     <div>

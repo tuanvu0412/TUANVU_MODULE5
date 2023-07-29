@@ -1,7 +1,7 @@
 import { createContract } from "../data/contractData";
 import { useEffect, useState } from "react";
 import { getListCustomer } from "../data/customerData";
-import { getListService } from "../data/serviceData";
+import { getListVilla } from "../data/serviceData";
 import '../serviceOfHotel/formAdd.css';
 const CreateContract = () => {
     const [selectedCustomer, setSelectedCustomer] = useState('');
@@ -32,7 +32,7 @@ const CreateContract = () => {
     }
 
     const getService = async () => {
-        const data = await getListService();
+        const data = await getListVilla();
         setServices(data);
     }
     return (

@@ -42,20 +42,48 @@ function Header() {
                             </button>
                             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                                 <div class="navbar-nav mr-auto py-0">
-                                    <a href="index.html" class="nav-item nav-link active">Home</a>
-                                    <a href="about.html" class="nav-item nav-link">About</a>
-                                    <a href="service.html" class="nav-item nav-link">Services</a>
-                                    <a href="room.html" class="nav-item nav-link">Rooms</a>
+                                    <a href="/" class="nav-item nav-link active">Home</a>
                                     <div class="nav-item dropdown">
-
-                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Villa</a>
                                         <div class="dropdown-menu rounded-0 m-0">
-                                            <Link to='/service'><a>ServiceManagement</a></Link><br></br>        
-                                            <Link to='/contract'><a>ContractManagement</a></Link><br/>
-                                            <Link to='/customer'><a>CustomerManagement</a></Link>
+                                            <Link to='/service'>List Villas</Link><br></br>
+                                            <Link to='/villas/villa'>Add new Villa</Link><br />
+                                            <Link to='/'>Edit Villa</Link>
                                         </div>
                                     </div>
-                                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">House</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <Link to='/house'>List House</Link><br></br>
+                                            <Link to='/houses/house'>Add New House</Link><br />
+                                            <Link to='/'>Edit House</Link>
+                                        </div>
+                                    </div>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Rooms</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <Link to='/room'>List Rooms</Link><br></br>
+                                            <Link to='/rooms/room'>Add new Rooms</Link><br />
+                                            <Link to='/'>Edit Rooms</Link>
+                                        </div>
+                                    </div>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Customer</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <Link to='/customer'>List Customer</Link><br></br>
+                                            <Link to='/customers/customer'>Add new Customer</Link><br />
+                                            <Link to='/'>Edit Customer</Link>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Contract</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <Link to='/contract'>List Contract</Link><br></br>
+                                            <Link to='/customers/customer'>Add new Contract</Link><br />
+
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>
                             </div>
