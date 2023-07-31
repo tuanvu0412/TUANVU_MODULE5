@@ -1,22 +1,6 @@
 {
   "villas": [
     {
-      "id": 3,
-      "service": "GARDEN VILLA",
-      "usable_area": "40m²",
-      "costs": "800000",
-      "max_people": "6",
-      "types": {
-        "id": 2,
-        "name": "week"
-      },
-      "standard": "Deluxe",
-      "description": "A deluxe villa with 3 bedrooms and private garden",
-      "pool": "No",
-      "floor": "3",
-      "free": "No"
-    },
-    {
       "service": "VILLA",
       "usable_area": "123",
       "max_people": "123",
@@ -111,22 +95,6 @@
       },
       "costs": "123",
       "id": 9
-    },
-    {
-      "service": "123",
-      "usable_area": "123",
-      "max_people": "123",
-      "standard": "123",
-      "description": "123",
-      "pool": "123",
-      "floor": "123",
-      "free": "123",
-      "types": {
-        "id": 1,
-        "name": "day"
-      },
-      "costs": "123",
-      "id": 10
     }
   ],
   "houses": [

@@ -120,7 +120,7 @@ const Service = () => {
                                         <td>{ser.floor}</td>
                                         <td>{ser.free}</td>
                                         <td>
-                                            <a href="#editEmployeeModal" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit"></i></a>
+                                            <Link to={`/villas/villa/${ser.id}`} ><i className="material-icons" data-toggle="tooltip" title="Edit"></i></Link>
                                             <a onClick={() => handleDelete(ser.id)}><i className="material-icons" data-toggle="tooltip" title="Delete"></i></a>
                                         </td>
                                     </tr>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+// import './index.css';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css";
 import "./bootstrap.min.css";
@@ -18,6 +18,7 @@ import Room from './component/serviceOfHotel/roomList';
 import House from './component/serviceOfHotel/houseList';
 import CreateHouse from './component/serviceOfHotel/createHouse';
 import CreateCustomer from './component/customer/createCustomer';
+import EditServices from './component/serviceOfHotel/editService';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
@@ -28,6 +29,7 @@ root.render(
             <Route path='/room' element={<Room></Room>}></Route>
             <Route path='/house' element={<House></House>}></Route>
             <Route path='/villas/villa' element={<CreateVilla></CreateVilla>}></Route>
+            <Route path='/villas/villa/:id' element={<EditServices></EditServices>}></Route>
             <Route path='/house/house' element={<CreateHouse></CreateHouse>}></Route>
             <Route path='/rooms/room' element={<CreateRoom></CreateRoom>}></Route>
             <Route path='/customers/customer' element={<CreateCustomer></CreateCustomer>}></Route>

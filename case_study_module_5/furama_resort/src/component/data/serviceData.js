@@ -34,4 +34,10 @@ export async function deleteVilla(id) {
     const res = await axios.delete(`http://localhost:8080/villas/${id}`)
     return res.data
 }
-
+export async function editVilla(villas){
+    await axios.put(`http://localhost:8080/villas`+villas.id,villas);
+}
+export async function findVillaById(id) {
+    const res = await axios.get(`http://localhost:8080/villas/${id}`)
+    return res.data
+}

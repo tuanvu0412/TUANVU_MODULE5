@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { getListCustomer, getListTypeCustomer } from "../data/customerData";
-import Modal from './deleteModal';
+
 import axios from "axios";
 import { Link } from "react-router-dom";
 
